@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.web.model;
+package com.springboot.web.springbootfirstwebapplication.controller;
 
 import java.util.Date;
 

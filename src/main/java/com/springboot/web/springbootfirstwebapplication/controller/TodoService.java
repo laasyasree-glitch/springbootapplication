@@ -1,4 +1,4 @@
-package com.in28minutes.springboot.web.service;
+package com.springboot.web.springbootfirstwebapplication.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -6,8 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
-import com.in28minutes.springboot.web.model.Todo;
 
 @Service
 public class TodoService {
