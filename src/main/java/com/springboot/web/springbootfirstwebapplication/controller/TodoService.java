@@ -21,6 +21,7 @@ public class TodoService {
     }
 
     public List<Todo> retrieveTodos(String user) {
+    	System.out.println("retrive");
         List<Todo> filteredTodos = new ArrayList<Todo>();
         for (Todo todo : todos) {
             if (todo.getUser().equals(user)) {

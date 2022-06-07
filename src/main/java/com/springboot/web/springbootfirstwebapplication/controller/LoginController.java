@@ -13,14 +13,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @RequestMapping("/login")
 @SessionAttributes("name")
 public class LoginController {
-	
-	LoginController(){
-		System.out.println("hi");
-	}
 	//Injected Automatically
 	
 	@Autowired
-	LoginService service;
+	private LoginService service;
 	@RequestMapping(value="",method=RequestMethod.GET)
 	
 	public String ShowLoginPage(ModelMap model) {
