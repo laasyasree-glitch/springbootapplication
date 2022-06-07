@@ -3,11 +3,11 @@ package com.springboot.web.springbootfirstwebapplication.controller;
 import java.util.Date;
 
 public class Todo {
-    private int id;
-    private String user;
-    private String desc;
-    private Date targetDate;
-    private boolean isDone;
+    public int id;
+    public String user;
+    public String desc;
+    public Date targetDate;
+    public boolean isDone;
 
     public Todo(int id, String user, String desc, Date targetDate, boolean isDone) {
         super();

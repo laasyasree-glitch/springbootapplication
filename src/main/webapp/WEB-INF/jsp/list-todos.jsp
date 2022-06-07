@@ -16,11 +16,12 @@
 </tr>
 </thead>
 <tbody>
+JSTL FOR LOOP
 <c:forEach items="${todos}" var="todo">
 <tr>
 <td>${todo.desc}</td>
 <td>${todo.targetDate}</td>
-<td>${todo.isDone}</td>
+<td>${todo.done}</td>
 </tr>
 </c:forEach>
 </tbody>

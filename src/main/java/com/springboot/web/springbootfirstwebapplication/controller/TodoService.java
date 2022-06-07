@@ -5,18 +5,21 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
+@Component
 public class TodoService {
     private static List<Todo> todos = new ArrayList<Todo>();
     private static int todoCount = 3;
 
     static {
-        todos.add(new Todo(1, "in28Minutes", "Learn Spring MVC", new Date(),
+    	System.out.println("start");
+        todos.add(new Todo(1, "laasya", "Learn Spring MVC", new Date(),
                 false));
-        todos.add(new Todo(2, "in28Minutes", "Learn Struts", new Date(), false));
-        todos.add(new Todo(3, "in28Minutes", "Learn Hibernate", new Date(),
+        todos.add(new Todo(2, "laasya", "Learn Struts", new Date(), false));
+        todos.add(new Todo(3, "laasya", "Learn Hibernate", new Date(),
                 false));
     }
 
