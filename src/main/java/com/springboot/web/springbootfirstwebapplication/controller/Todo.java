@@ -2,13 +2,18 @@ package com.springboot.web.springbootfirstwebapplication.controller;
 
 import java.util.Date;
 
+import javax.validation.constraints.Size;
+
 public class Todo {
     public int id;
     public String user;
+    @Size(min=10, message="---Please enter atleat 10 character---")
     public String desc;
     public Date targetDate;
     public boolean isDone;
-
+    public Todo() {
+    	super();
+    }
     public Todo(int id, String user, String desc, Date targetDate, boolean isDone) {
         super();
         this.id = id;
