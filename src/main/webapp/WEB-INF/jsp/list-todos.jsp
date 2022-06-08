@@ -14,6 +14,7 @@
 <th>Description</th>
 <th>Target Date</th>
 <th>Status</th>
+<th>To Update</th>
 <th>Trash</th>
 </tr>
 </thead>
@@ -23,14 +24,15 @@
 <td>${todo.desc}</td>
 <td>${todo.targetDate}</td>
 <td>${todo.done}</td>
+<td><a type="button" class="btn btn-info" href="/update-todo?id=${todo.id}">UPDATE</a></td>
 <td><a type="button" class="btn btn-danger" href="/delete-todo?id=${todo.id}">DELETE</a></td>
 </tr>
 </c:forEach>
 </tbody>
 <BR/>
 <div><a class="button" href="/add-todo">Add a Todo</a></div>
+</div>
 <script src="webjars/jquery/1.9.1/jquery.min.js"></script>
 <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</div>
 </body>
 </html>
