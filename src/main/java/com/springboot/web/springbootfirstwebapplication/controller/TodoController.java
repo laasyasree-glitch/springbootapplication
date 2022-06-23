@@ -24,6 +24,9 @@ public class TodoController {
 	@Autowired
 	private TodoService service;
 	
+	@Autowired
+	TodoRepository repository;
+	
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) {//To access in same packages
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
@@ -35,7 +38,8 @@ public class TodoController {
 	public String showTodos(ModelMap model){
 		String name = extracted(model);
 		//System.out.println(name);
-		model.put("todos", service.retrieveTodos(name));
+		model.put("todos", repository.findByUser(name));
+		//model.put("todos", service.retrieveTodos(name));
 		return "list-todos";
 	}
 	@RequestMapping(value = "/add-todo", method = RequestMethod.GET)
@@ -49,19 +53,23 @@ public class TodoController {
 		if(result.hasErrors()) {
 			return "todo";
 		}
-		service.addTodo(extracted(model), todo.getDesc(), todo.getTargetDate(), false);
+		todo.setUser(extracted(model));
+		repository.save(todo);
+		//service.addTodo(extracted(model), todo.getDesc(), todo.getTargetDate(), false);
 		return "redirect:/list-todos";
 	}
 	@RequestMapping(value="/delete-todo", method = RequestMethod.GET)
 	public String deleteTodo(@RequestParam int id){
-		service.deleteTodo(id);
-		if(id==1)
-			throw new RuntimeException("Something went wrong");
+		/*if(id==1)
+			throw new RuntimeException("Something went wrong");*/
+		repository.deleteById(id);
+		//service.deleteTodo(id);
 		return "redirect:/list-todos";
 	}
 	@RequestMapping(value="/update-todo", method = RequestMethod.GET)
 	public String showupdateTodo(ModelMap model,@RequestParam int id){
-		Todo updatedTodo=service.retrieveTodo(id);
+		//Todo updatedTodo=service.retrieveTodo(id);
+		Todo updatedTodo = repository.findById(id).get();
 		model.put("todo", updatedTodo);
 		return "todo";
 	}
@@ -71,7 +79,8 @@ public class TodoController {
 			return "todo";
 		}
 		todo.setUser(extracted(model));
-		service.updateTodo(todo);
+		//service.updateTodo(todo);
+		repository.save(todo);
 		return "redirect:/list-todos";
 	}
 	private String extracted(ModelMap model) {

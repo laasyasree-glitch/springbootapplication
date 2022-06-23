@@ -2,9 +2,16 @@ package com.springboot.web.springbootfirstwebapplication.controller;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
+@Entity
 public class Todo {
+	
+	@Id
+	@GeneratedValue
     public int id;
     public String user;
     @Size(min=10, message="---Please enter atleat 10 character---")
